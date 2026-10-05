@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "build": "node build.mjs",
     "dev": "node server.js",
     "test": "node crypto.test.js && node blockchain.test.js && node presentation.test.js"
   },

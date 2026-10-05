@@ -33,7 +33,7 @@ Demo mode is ignored in production and cannot be enabled through a query paramet
 
 ## Files and design
 
-For production, the root `npm run build:deploy` stages only public assets into `frontend/dist`. The Render backend serves this directory and the API from one HTTPS origin. `/` redirects to the public site; `/index.html` remains the workspace. The server's `/runtime-config.js` forces REAL_MODE and the same-origin API base even on localhost packaging checks. See [deployment instructions](../docs/DEPLOYMENT.md) in the repository; this source guide does not imply that a hosted deployment already exists.
+For production, `npm run build` from `frontend/` stages only public assets into `frontend/dist`. The root `npm run build:deploy` uses the same packaging script alongside the backend build. The Render backend serves this directory and the API from one HTTPS origin. `/` redirects to the public site; `/index.html` remains the workspace. The server's `/runtime-config.js` forces REAL_MODE and the same-origin API base even on localhost packaging checks. See [deployment instructions](../docs/DEPLOYMENT.md) in the repository; this source guide does not imply that a hosted deployment already exists.
 
 - `design.md`: public visual direction and product UX specification.
 - `tokens.css`, `favicon.svg`: shared typography, colors, focus, reduced-motion foundations and identity.
@@ -45,9 +45,18 @@ For production, the root `npm run build:deploy` stages only public assets into `
 - `presentation.js`: progress, persistent feedback, resource states, integrity result display, keyboard navigation and dialog focus. It makes no API, wallet or cryptographic calls.
 - `api.js`, `crypto.js`, `blockchain.js`: API client, browser encryption identity and MetaMask/ethers helpers.
 - `runtime-config.js`, `blockchain-config.js`, `KryptoVaultAccess.abi.json`, `server.js`: existing runtime/configuration boundary and static server.
-- `crypto.test.js`, `blockchain.test.js`, `presentation.test.js`: regression checks. No lint, typecheck or build script is configured; the frontend is served as static files.
+- `build.mjs`, `vercel.json`: allowlisted static packaging and frontend-only Vercel deployment settings.
+- `crypto.test.js`, `blockchain.test.js`, `presentation.test.js`: regression checks. No lint or typecheck script is configured; the frontend is served as static files.
 
 See [REDESIGN_NOTES.md](REDESIGN_NOTES.md) for verification and scope. The design uses Inter and JetBrains Mono through Google Fonts with local system fallbacks. It adds no frontend framework or runtime dependency.
+
+## Frontend-only deployment on Vercel
+
+Set the Vercel project's **Root Directory** to `frontend`, **Framework Preset** to **Other**, **Build Command** to `npm run build`, and **Output Directory** to `dist`. Use the default npm install command. Commit and push these files, then redeploy. The configuration in `frontend/vercel.json` selects the static build and redirects `/` to `/landing_page/index.html`; `/index.html` remains the workspace. The repository-root Vercel configuration targets Express and is not used for this frontend-only project.
+
+The build copies only explicitly listed public files, including the ethers browser bundle. It excludes environment files, server/build scripts, tests and review artifacts. It adds no framework or dependencies.
+
+This publishes the public site and workspace assets only. The public site works without the backend; wallet authentication and document operations still require the API. By default, the hosted workspace requests `/api/*` on its own origin, which this static deployment does not provide. Backend routing and cookie/CORS configuration must be completed before the workspace can operate. The existing single-origin Render deployment remains the documented full-stack option. Do not put backend secrets in frontend files or build output.
 
 ## Real workspace flow
 
