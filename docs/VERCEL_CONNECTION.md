@@ -2,6 +2,8 @@
 
 ## Current status
 
+Later runtime logs confirmed the missing `MONGODB_URI` configuration was followed by `Invalid export found in module .../backend/src/app.js` on a newer deployment. The backend entry now exports a default Express handler with lazy MongoDB initialization. Deploy this change before rechecking health/readiness; a successful health response alone does not prove database connectivity. No live verification of this entry-point fix has been completed.
+
 On 5 October 2026, the frontend at `https://krypto-vault.vercel.app` responded with the expected landing-page redirect. Both `/api/health` and `/api/ready` on `https://kryptovaultbackend.vercel.app` returned HTTP 500 with `FUNCTION_INVOCATION_FAILED`. This indicates a runtime failure; a successful build does not establish a working API. The cause requires the backend's Vercel Runtime Logs. The connected Vercel account could not access this deployment's details.
 
 The repository now includes the API proxy configuration. It has not been verified on a redeployed frontend, and authenticated end-to-end operation remains unverified.

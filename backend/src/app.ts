@@ -21,6 +21,7 @@ import { kycRouter } from "./routes/kyc.js";
 import { blockchainRouter } from "./routes/blockchain.js";
 import { securityPolicyRouter } from "./routes/security-policy.js";
 import { createFrontendRouter } from "./deployment/frontend.js";
+import { createDatabaseMiddleware } from "./deployment/database.js";
 
 type HelmetFactory = () => RequestHandler;
 
@@ -28,7 +29,7 @@ const helmet =
   ((helmetModule as unknown as { default?: HelmetFactory }).default ??
     helmetModule) as HelmetFactory;
 
-export function createApp() {
+export function createApp({ connectOnRequest = false } = {}) {
   const app = express();
 
   app.disable("x-powered-by");
@@ -55,6 +56,9 @@ export function createApp() {
   app.use(requestLogger);
 
   app.use("/api", generalApiLimiter);
+  app.use("/api/health", healthRouter);
+
+  if (connectOnRequest) app.use("/api", createDatabaseMiddleware());
 
   app.use("/api/activity", activityRouter);
   app.use("/api/auth", authRouter);
@@ -63,7 +67,6 @@ export function createApp() {
   app.use("/api/blockchain", blockchainRouter);
   app.use("/api/kyc", kycRouter);
   app.use("/api/security-policy", securityPolicyRouter);
-  app.use("/api/health", healthRouter);
   app.use("/api/ready", readyRouter);
   app.use("/api/users", usersRouter);
 
@@ -74,3 +77,6 @@ export function createApp() {
 
   return app;
 }
+
+// Vercel detects src/app.ts directly; importing it must not open a listener.
+export default createApp({ connectOnRequest: true });

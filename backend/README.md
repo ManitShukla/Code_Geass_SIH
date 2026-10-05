@@ -28,6 +28,8 @@ Copy `.env.example` to `.env` for local development. Do not commit `.env`.
 
 `MONGODB_URI` must be set in the environment before the server starts.
 
+For a Vercel project rooted at `backend`, `src/app.ts` exports a default Express application. It connects to MongoDB on API requests, shares concurrent connection attempts, reuses an established connection, and retries after connection failures. `/api/health` remains available without MongoDB; `/api/ready` attempts a connection and reports readiness. Connection failures return a sanitized HTTP 503. The local/Render `src/server.ts` entry still connects before listening. See [Vercel setup and remaining serverless limitations](../docs/VERCEL_CONNECTION.md).
+
 ## Routes
 
 Production hosting is configured by root `render.yaml`; see [deployment instructions](../docs/DEPLOYMENT.md). `SERVE_FRONTEND=true` serves the allowlisted frontend build alongside `/api`. Configure `TRUST_PROXY_HOPS=1` only behind the selected Render proxy, and use `SESSION_COOKIE_SAME_SITE=lax` for this combined HTTPS origin. `CORS_ORIGIN` must be an exact origin; it defaults to `RENDER_EXTERNAL_URL` when available. Local split-server defaults remain unchanged.
