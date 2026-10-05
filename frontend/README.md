@@ -18,6 +18,8 @@ The development server defaults to port 8000:
 - `/landing_page/index.html`: public site, usable without a wallet or backend.
 - `/landing_page/login.html`: wallet-access introduction, linked to the workspace's existing **Connect Wallet** action.
 
+The public site's Resources section and footer link to the [project's GitHub repository](https://github.com/ManitShukla/Code_Geass_SIH), opening in a new tab.
+
 `REAL_MODE` is the default. The local API base is `http://localhost:4000`; on deployed hosts it defaults to the frontend origin. Configure `window.KRYPTO_API_BASE_URL` before `api.js` if the API is elsewhere. Cookies, CORS and authentication must be configured by the existing backend deployment.
 
 For an explicitly simulated local presentation, set the development environment before starting the server:
