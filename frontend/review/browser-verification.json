@@ -1,0 +1,484 @@
+﻿[
+    {
+        "results":  [
+                        {
+                            "name":  "Mobile drawer opens",
+                            "value":  true
+                        },
+                        {
+                            "name":  "Escape closes drawer",
+                            "value":  true
+                        },
+                        {
+                            "name":  "All seven manual pipeline stages",
+                            "value":  true
+                        },
+                        {
+                            "name":  "Integrity mismatch",
+                            "value":  true
+                        },
+                        {
+                            "name":  "Integrity match",
+                            "value":  true
+                        },
+                        {
+                            "name":  "Strong revoke stages",
+                            "value":  true
+                        },
+                        {
+                            "name":  "Permission validity error",
+                            "value":  true
+                        },
+                        {
+                            "name":  "Future permission distinct",
+                            "value":  true
+                        },
+                        {
+                            "name":  "Reduced motion disables continuous animation",
+                            "value":  true
+                        },
+                        {
+                            "name":  "Missing wallet handled",
+                            "value":  true
+                        },
+                        {
+                            "name":  "Upload dialog labelled and focuses heading",
+                            "value":  true
+                        },
+                        {
+                            "name":  "Dialog backward focus trap",
+                            "value":  true
+                        },
+                        {
+                            "name":  "Dialog closes and restores focus",
+                            "value":  true
+                        },
+                        {
+                            "name":  "Every workspace view retains content at 390px",
+                            "value":  [
+                                          {
+                                              "page":  "dashboard",
+                                              "content":  1130
+                                          },
+                                          {
+                                              "page":  "documents",
+                                              "content":  157
+                                          },
+                                          {
+                                              "page":  "shared",
+                                              "content":  180
+                                          },
+                                          {
+                                              "page":  "folders",
+                                              "content":  188
+                                          },
+                                          {
+                                              "page":  "activity",
+                                              "content":  100
+                                          },
+                                          {
+                                              "page":  "blockchain",
+                                              "content":  152
+                                          },
+                                          {
+                                              "page":  "account",
+                                              "content":  667
+                                          },
+                                          {
+                                              "page":  "security",
+                                              "content":  1093
+                                          },
+                                          {
+                                              "page":  "settings",
+                                              "content":  59
+                                          }
+                                      ]
+                        },
+                        {
+                            "name":  "Workspace has no page overflow at 320px",
+                            "value":  true
+                        },
+                        {
+                            "name":  "Policy controls remain locked",
+                            "value":  true
+                        },
+                        {
+                            "name":  "Theme toggle",
+                            "value":  true
+                        },
+                        {
+                            "name":  "Profile visible from mobile nav",
+                            "value":  true
+                        }
+                    ],
+        "errors":  [
+
+                   ]
+    },
+    {
+        "path":  "/landing_page/index.html",
+        "reports":  [
+                        {
+                            "width":  320,
+                            "scrollWidth":  305,
+                            "overflow":  [
+
+                                         ],
+                            "h1":  1,
+                            "content":  8940
+                        },
+                        {
+                            "width":  390,
+                            "scrollWidth":  375,
+                            "overflow":  [
+
+                                         ],
+                            "h1":  1,
+                            "content":  8940
+                        },
+                        {
+                            "width":  768,
+                            "scrollWidth":  753,
+                            "overflow":  [
+
+                                         ],
+                            "h1":  1,
+                            "content":  9288
+                        },
+                        {
+                            "width":  1024,
+                            "scrollWidth":  1009,
+                            "overflow":  [
+
+                                         ],
+                            "h1":  1,
+                            "content":  9466
+                        },
+                        {
+                            "width":  1366,
+                            "scrollWidth":  1351,
+                            "overflow":  [
+
+                                         ],
+                            "h1":  1,
+                            "content":  9466
+                        },
+                        {
+                            "width":  1440,
+                            "scrollWidth":  1425,
+                            "overflow":  [
+
+                                         ],
+                            "h1":  1,
+                            "content":  9466
+                        },
+                        {
+                            "width":  1920,
+                            "scrollWidth":  1905,
+                            "overflow":  [
+
+                                         ],
+                            "h1":  1,
+                            "content":  9466
+                        }
+                    ],
+        "errors":  [
+
+                   ],
+        "resources":  [
+
+                      ]
+    },
+    {
+        "path":  "/landing_page/login.html",
+        "reports":  [
+                        {
+                            "width":  320,
+                            "scrollWidth":  305,
+                            "overflow":  [
+
+                                         ],
+                            "h1":  1,
+                            "content":  746
+                        },
+                        {
+                            "width":  390,
+                            "scrollWidth":  375,
+                            "overflow":  [
+
+                                         ],
+                            "h1":  1,
+                            "content":  746
+                        },
+                        {
+                            "width":  768,
+                            "scrollWidth":  753,
+                            "overflow":  [
+
+                                         ],
+                            "h1":  1,
+                            "content":  746
+                        },
+                        {
+                            "width":  1024,
+                            "scrollWidth":  1009,
+                            "overflow":  [
+
+                                         ],
+                            "h1":  1,
+                            "content":  746
+                        },
+                        {
+                            "width":  1366,
+                            "scrollWidth":  1351,
+                            "overflow":  [
+
+                                         ],
+                            "h1":  1,
+                            "content":  746
+                        },
+                        {
+                            "width":  1440,
+                            "scrollWidth":  1425,
+                            "overflow":  [
+
+                                         ],
+                            "h1":  1,
+                            "content":  746
+                        },
+                        {
+                            "width":  1920,
+                            "scrollWidth":  1905,
+                            "overflow":  [
+
+                                         ],
+                            "h1":  1,
+                            "content":  746
+                        }
+                    ],
+        "errors":  [
+
+                   ],
+        "resources":  [
+
+                      ]
+    },
+    {
+        "path":  "/index.html",
+        "reports":  [
+                        {
+                            "width":  320,
+                            "scrollWidth":  305,
+                            "overflow":  [
+
+                                         ],
+                            "h1":  1,
+                            "content":  1398
+                        },
+                        {
+                            "width":  390,
+                            "scrollWidth":  375,
+                            "overflow":  [
+
+                                         ],
+                            "h1":  1,
+                            "content":  1398
+                        },
+                        {
+                            "width":  768,
+                            "scrollWidth":  753,
+                            "overflow":  [
+
+                                         ],
+                            "h1":  1,
+                            "content":  1464
+                        },
+                        {
+                            "width":  1024,
+                            "scrollWidth":  1009,
+                            "overflow":  [
+
+                                         ],
+                            "h1":  1,
+                            "content":  1464
+                        },
+                        {
+                            "width":  1366,
+                            "scrollWidth":  1351,
+                            "overflow":  [
+
+                                         ],
+                            "h1":  1,
+                            "content":  1464
+                        },
+                        {
+                            "width":  1440,
+                            "scrollWidth":  1425,
+                            "overflow":  [
+
+                                         ],
+                            "h1":  1,
+                            "content":  1464
+                        },
+                        {
+                            "width":  1920,
+                            "scrollWidth":  1905,
+                            "overflow":  [
+
+                                         ],
+                            "h1":  1,
+                            "content":  1464
+                        }
+                    ],
+        "errors":  [
+
+                   ],
+        "resources":  [
+
+                      ]
+    },
+    {
+        "results":  [
+                        {
+                            "scenario":  "no JavaScript",
+                            "path":  "/landing_page/index.html",
+                            "width":  320,
+                            "scrollWidth":  305,
+                            "text":  8814,
+                            "notice":  "",
+                            "preloaderHidden":  true
+                        },
+                        {
+                            "scenario":  "no JavaScript",
+                            "path":  "/landing_page/login.html",
+                            "width":  320,
+                            "scrollWidth":  305,
+                            "text":  840,
+                            "notice":  "The workspace requires JavaScript, Web Crypto, IndexedDB and a compatible MetaMask provider.",
+                            "preloaderHidden":  true
+                        },
+                        {
+                            "scenario":  "no JavaScript",
+                            "path":  "/index.html",
+                            "width":  320,
+                            "scrollWidth":  305,
+                            "text":  1388,
+                            "notice":  "KryptoVault requires JavaScript, Web Crypto, IndexedDB and MetaMask to use the workspace. Read about the project.",
+                            "preloaderHidden":  true
+                        },
+                        {
+                            "scenario":  "no JavaScript",
+                            "path":  "/",
+                            "width":  320,
+                            "scrollWidth":  305,
+                            "text":  1388,
+                            "notice":  "KryptoVault requires JavaScript, Web Crypto, IndexedDB and MetaMask to use the workspace. Read about the project.",
+                            "preloaderHidden":  true
+                        },
+                        {
+                            "scenario":  "reduced motion desktop",
+                            "pipelinePosition":  "static",
+                            "animation":  "none",
+                            "poster":  true
+                        },
+                        {
+                            "scenario":  "short height",
+                            "path":  "/landing_page/index.html",
+                            "width":  1366,
+                            "scrollWidth":  1351,
+                            "height":  480
+                        },
+                        {
+                            "scenario":  "short height",
+                            "path":  "/landing_page/login.html",
+                            "width":  1366,
+                            "scrollWidth":  1351,
+                            "height":  480
+                        },
+                        {
+                            "scenario":  "short height",
+                            "path":  "/index.html",
+                            "width":  1366,
+                            "scrollWidth":  1351,
+                            "height":  480
+                        },
+                        {
+                            "scenario":  "200% zoom equivalent layout viewport",
+                            "path":  "/landing_page/index.html",
+                            "width":  720,
+                            "scrollWidth":  705,
+                            "height":  450
+                        },
+                        {
+                            "scenario":  "200% zoom equivalent layout viewport",
+                            "path":  "/landing_page/login.html",
+                            "width":  720,
+                            "scrollWidth":  705,
+                            "height":  450
+                        },
+                        {
+                            "scenario":  "200% zoom equivalent layout viewport",
+                            "path":  "/index.html",
+                            "width":  720,
+                            "scrollWidth":  705,
+                            "height":  450
+                        },
+                        {
+                            "scenario":  "public links",
+                            "links":  [
+                                          {
+                                              "href":  "#main",
+                                              "ok":  true
+                                          },
+                                          {
+                                              "href":  "#top",
+                                              "ok":  true
+                                          },
+                                          {
+                                              "href":  "/landing_page/login.html",
+                                              "ok":  true
+                                          },
+                                          {
+                                              "href":  "#overview",
+                                              "ok":  true
+                                          },
+                                          {
+                                              "href":  "#technology",
+                                              "ok":  true
+                                          },
+                                          {
+                                              "href":  "#security",
+                                              "ok":  true
+                                          },
+                                          {
+                                              "href":  "#use-cases",
+                                              "ok":  true
+                                          },
+                                          {
+                                              "href":  "#architecture",
+                                              "ok":  true
+                                          },
+                                          {
+                                              "href":  "#resources",
+                                              "ok":  true
+                                          },
+                                          {
+                                              "href":  "/README.md",
+                                              "ok":  true
+                                          },
+                                          {
+                                              "href":  "#revocation",
+                                              "ok":  true
+                                          },
+                                          {
+                                              "href":  "/KryptoVaultAccess.abi.json",
+                                              "ok":  true
+                                          }
+                                      ]
+                        }
+                    ],
+        "errors":  [
+
+                   ]
+    }
+]

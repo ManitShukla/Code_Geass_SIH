@@ -1,0 +1,43 @@
+# yaml-language-server: $schema=https://render.com/schema/render.yaml.json
+# One persistent Node process: challenges and sessions are currently in memory.
+services:
+  - type: web
+    name: kryptovault-fresh
+    runtime: node
+    plan: free
+    numInstances: 1
+    autoDeployTrigger: off
+    buildCommand: npm ci --prefix backend --include=dev && npm ci --prefix frontend && npm run build:deploy
+    startCommand: npm run start:deploy
+    healthCheckPath: /api/ready
+    envVars:
+      - key: NODE_VERSION
+        value: "22.23.2"
+      - key: SKIP_INSTALL_DEPS
+        value: "true"
+      - key: NODE_ENV
+        value: production
+      - key: SERVE_FRONTEND
+        value: "true"
+      - key: TRUST_PROXY_HOPS
+        value: "1"
+      - key: SESSION_COOKIE_SAME_SITE
+        value: lax
+      # CORS_ORIGIN defaults to Render's generated RENDER_EXTERNAL_URL.
+      # For a custom domain, explicitly set CORS_ORIGIN to its HTTPS origin.
+      - key: MONGODB_URI
+        sync: false
+      - key: MONGODB_DATABASE
+        value: kryptovault-fresh-20260921
+      - key: GRIDFS_BUCKET_NAME
+        value: encryptedAssets
+      - key: ETHEREUM_RPC_URL
+        value: https://ethereum-sepolia-rpc.publicnode.com
+      - key: EXPECTED_CHAIN_ID
+        value: "11155111"
+      - key: CONTRACT_ADDRESS
+        value: "0x87becA5241e43607ce2983608B1D479f97cD9a05"
+      - key: REQUIRE_KYC_BEFORE_SHARING
+        value: "false"
+      - key: ENCRYPTED_ASSET_MAX_BYTES
+        value: "26214400"

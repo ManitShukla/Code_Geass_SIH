@@ -1,0 +1,14 @@
+Things that I want in the website landing page:
+
+1) Preloader
+2) Infinite Isometric Scroll (Floating 3D Grid): A structural layout where UI cards, images, or elements are tilted on a 3D axis and float across the screen in an endless, continuous scrolling motion. It should be displaying different photos of user of mock up documents like aadhar card, hospital report passport or any other document that we are protecting thorough CryptoVault.
+3) Cinematic Hero Section: A landing page dominated by a single, massive background or central image, using heavy negative space and center-aligned content to create a highly focused, thematic mood. The first look of the landing page should be a jawdroping look, like this photo
+4) A mock up of the website running on a phone and a laptop, in a section where it shows how easy the website and project are to operate on any device.
+5) Scroll-Triggered Typography (Parallax Text): Oversized, bold text that overlaps images and moves dynamically, tied to the user's scrollbar. I wanna add it in some places around the website, like the title, so that the website feels more alive.
+6) Scroll Pinning (Sticky Sections): Locking a section in place on the screen while the user scrolls, allowing overlapping content to stack or slide past before unlocking. I wanna add to the content bar of the website, the bar that contains the checkpoints for the website like about, technology, resources, contact etc. Idk what it is exactly called. Thats why i want the content bar to be below the cinematic hero piece, so that it can snap to the top of the page as we scroll.
+
+
+
+
+Things to be integrated into the website itself.
+1) A visualsation of how the data is being processed, like when the file is being uploaded. It should look like a futurestic pipeline, where the data is fed from one processing box to another, and a little description of what is happening is written on the box. The boxes should come into focus one after another, and then slide off to the side like a futurestic factory production line.

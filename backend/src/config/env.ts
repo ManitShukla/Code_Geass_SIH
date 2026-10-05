@@ -1,0 +1,74 @@
+import "dotenv/config";
+import { z } from "zod";
+
+const ethereumRpcUrl = process.env.ETHEREUM_RPC_URL ?? process.env.BLOCKCHAIN_RPC_URL ?? "https://ethereum-sepolia-rpc.publicnode.com";
+const expectedChainId = process.env.EXPECTED_CHAIN_ID ?? process.env.CHAIN_ID ?? "11155111";
+const envBoolean = z.preprocess((value) => {
+  if (typeof value === "string") {
+    const normalized = value.trim().toLowerCase();
+    if (["true", "1", "yes", "on"].includes(normalized)) return true;
+    if (["false", "0", "no", "off", ""].includes(normalized)) return false;
+  }
+
+  return value;
+}, z.boolean());
+
+const envSchema = z.object({
+  NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
+  PORT: z.coerce.number().int().positive().default(4000),
+  MONGODB_URI: z.string().trim().min(1, "MONGODB_URI is required").refine((value) => {
+    try {
+      const parsed = new URL(value);
+      return parsed.protocol === "mongodb:" || parsed.protocol === "mongodb+srv:";
+    } catch {
+      return false;
+    }
+  }, "MONGODB_URI must be a valid MongoDB connection string"),
+  MONGODB_DATABASE: z
+    .string()
+    .trim()
+    .min(1)
+    .max(63)
+    .regex(/^[^/\\."$*<>:|?]+$/, "MONGODB_DATABASE contains invalid characters")
+    .optional(),
+  CORS_ORIGIN: z.string().url().refine((value) => {
+    try {
+      const url = new URL(value);
+      return ["http:", "https:"].includes(url.protocol) && url.origin === value;
+    } catch {
+      return false;
+    }
+  }, "CORS_ORIGIN must be one exact HTTP(S) origin without a path").default(process.env.RENDER_EXTERNAL_URL || "http://localhost:8000"),
+  TRUST_PROXY_HOPS: z.coerce.number().int().min(0).max(5).default(0),
+  SERVE_FRONTEND: envBoolean.default(false),
+  SESSION_COOKIE_SAME_SITE: z.enum(["lax", "strict", "none"]).optional(),
+  JSON_BODY_LIMIT: z.string().min(1).default("1mb"),
+  RATE_LIMIT_WINDOW_MS: z.coerce.number().int().positive().default(15 * 60 * 1000),
+  RATE_LIMIT_MAX: z.coerce.number().int().positive().default(300),
+  AUTH_RATE_LIMIT_WINDOW_MS: z.coerce.number().int().positive().default(15 * 60 * 1000),
+  AUTH_RATE_LIMIT_MAX: z.coerce.number().int().positive().default(20),
+  SENSITIVE_ACTION_RATE_LIMIT_WINDOW_MS: z.coerce.number().int().positive().default(15 * 60 * 1000),
+  SENSITIVE_ACTION_RATE_LIMIT_MAX: z.coerce.number().int().positive().default(30),
+  AUTH_NONCE_TTL_MS: z.coerce.number().int().positive().default(5 * 60 * 1000),
+  SESSION_TTL_MS: z.coerce.number().int().positive().default(24 * 60 * 60 * 1000),
+  ENCRYPTED_ASSET_MAX_BYTES: z.coerce.number().int().positive().default(25 * 1024 * 1024),
+  GRIDFS_BUCKET_NAME: z.string().trim().min(1).default("encryptedAssets"),
+  REQUIRE_KYC_BEFORE_SHARING: envBoolean.default(false),
+  ETHEREUM_RPC_URL: z.string().url(),
+  CONTRACT_ADDRESS: z.string().regex(/^0x[a-fA-F0-9]{40}$/).default("0x87becA5241e43607ce2983608B1D479f97cD9a05"),
+  EXPECTED_CHAIN_ID: z.coerce.number().int().positive(),
+}).refine((value) => value.NODE_ENV !== "production" || value.CORS_ORIGIN.startsWith("https://"), {
+  path: ["CORS_ORIGIN"], message: "Production requires an HTTPS frontend origin"
+});
+
+const parsedEnv = envSchema.parse({
+  ...process.env,
+  ETHEREUM_RPC_URL: ethereumRpcUrl,
+  EXPECTED_CHAIN_ID: expectedChainId
+});
+
+export const env = {
+  ...parsedEnv,
+  BLOCKCHAIN_RPC_URL: parsedEnv.ETHEREUM_RPC_URL,
+  CHAIN_ID: parsedEnv.EXPECTED_CHAIN_ID
+};
