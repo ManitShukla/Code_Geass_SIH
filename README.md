@@ -88,6 +88,7 @@ For Sepolia integration, keep `backend/.env` set to `PORT=4000`,
 
 ## Docs
 
+- Connecting the deployed Vercel frontend/backend: `docs/VERCEL_CONNECTION.md`
 - Backend details: `backend/README.md`
 - Frontend guide: `frontend/README.md`
 - Local blockchain demo: `blockchain/README.md`

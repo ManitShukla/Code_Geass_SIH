@@ -56,7 +56,7 @@ Set the Vercel project's **Root Directory** to `frontend`, **Framework Preset** 
 
 The build copies only explicitly listed public files, including the ethers browser bundle. It excludes environment files, server/build scripts, tests and review artifacts. It adds no framework or dependencies.
 
-This publishes the public site and workspace assets only. The public site works without the backend; wallet authentication and document operations still require the API. By default, the hosted workspace requests `/api/*` on its own origin, which this static deployment does not provide. Backend routing and cookie/CORS configuration must be completed before the workspace can operate. The existing single-origin Render deployment remains the documented full-stack option. Do not put backend secrets in frontend files or build output.
+The hosted workspace requests `/api/*` on its own origin. `frontend/vercel.json` proxies those requests to `https://kryptovaultbackend.vercel.app/api/*` and disables API response caching. Keep the API client on its default same-origin URL so the session cookie belongs to the frontend domain. See [Vercel connection setup](../docs/VERCEL_CONNECTION.md) for backend environment settings, checks and current serverless limitations. The public site works without the backend; wallet authentication and document operations require a healthy API. The existing single-origin Render deployment remains an alternative for the current backend architecture. Do not put backend secrets in frontend files or build output.
 
 ## Real workspace flow
 
